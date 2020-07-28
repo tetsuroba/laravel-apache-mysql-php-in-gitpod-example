@@ -7,10 +7,6 @@ ports:
     onOpen: ignore
 tasks:
   - init: composer install
-    command: echo "Hallo"
-  - name: MySQL
-    command: >
-        mysqld
   - name: Apache
     command: >
         apachectl start;

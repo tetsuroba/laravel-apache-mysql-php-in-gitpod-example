@@ -40,7 +40,7 @@ Icon
 # ---------------
 /site/config/.license
 
-# ignore because of copyright reasons
 
+#gitignore for copyright reasons
 /kirby
 /vendor
