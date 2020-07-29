@@ -44,6 +44,6 @@ Icon
 #gitignore for copyright reasons
 /kirby
 /vendor
-/assets
-/content
-/site
+/assets/*
+/content/*
+/site/*
