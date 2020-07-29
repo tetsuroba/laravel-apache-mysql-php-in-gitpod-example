@@ -12,7 +12,7 @@ Icon
 
 # Lock files
 # ---------------
-#.lock
+.lock
 
 # -------------SECURITY-------------
 # NEVER publish these files via Git!
@@ -21,24 +21,24 @@ Icon
 # Cache Files
 # ---------------
 
-#/site/cache/*
-#!/site/cache/index.html
+/site/cache/*
+!/site/cache/index.html
 
 # Accounts
 # ---------------
 
-#/site/accounts/*
-#!/site/accounts/index.html
+/site/accounts/*
+!/site/accounts/index.html
 
 # Sessions
 # ---------------
 
-#/site/sessions/*
-#!/site/sessions/index.html
+/site/sessions/*
+!/site/sessions/index.html
 
 # License
 # ---------------
-#/site/config/.license
+/site/config/.license
 
 
 #gitignore for copyright reasons
@@ -47,4 +47,3 @@ Icon
 /vendor
 /assets
 /content
-/site

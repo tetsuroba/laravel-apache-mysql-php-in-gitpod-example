@@ -2,11 +2,13 @@ image:
   file: Dockerfile
 ports:
   - port: 8001
+    onOpen: open-preview
+  - port: 3306
     onOpen: ignore
 tasks:
   - init: composer install
+          git clone https://github.com/constantinjoly/512
   - name: Apache
     command: >
-        git clone https://github.com/constantinjoly/512 public
         apachectl start;
         multitail /var/log/apache2/error.log -I /var/log/apache2/access.log
