@@ -5,6 +5,7 @@ ports:
     onOpen: ignore
 tasks:
   - init: composer install
+          composer update
   - name: Apache
     command: >
         apachectl start;
