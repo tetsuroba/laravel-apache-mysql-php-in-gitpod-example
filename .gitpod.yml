@@ -7,7 +7,9 @@ ports:
     onOpen: ignore
 tasks:
   - init: composer install
-          git clone https://github.com/constantinjoly/512
+  - name: Git
+    command: >
+        git clone https://github.com/constantinjoly/512
   - name: Apache
     command: >
         apachectl start;
