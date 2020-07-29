@@ -1,12 +1,8 @@
 <?php
 
-
 return [
   'thumbs' => [
-    'driver' => 'im',
-    'panel' =>[
-    'install' => true
-  ]
+    'driver' => 'im'
   ],
   
   'debug' => false,  
