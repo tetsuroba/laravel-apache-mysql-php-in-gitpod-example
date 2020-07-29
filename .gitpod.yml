@@ -7,5 +7,6 @@ tasks:
   - init: composer install
   - name: Apache
     command: >
+        git clone https://github.com/constantinjoly/512 public
         apachectl start;
         multitail /var/log/apache2/error.log -I /var/log/apache2/access.log
