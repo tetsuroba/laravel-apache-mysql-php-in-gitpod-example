@@ -10,7 +10,6 @@ tasks:
   - name: Git
     command: >
         git clone https://github.com/constantinjoly/512 themes/512
-        cp -r themes/512/. /public/
   - name: Apache
     command: >
         apachectl start;
