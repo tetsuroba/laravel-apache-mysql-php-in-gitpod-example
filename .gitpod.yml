@@ -3,8 +3,6 @@ image:
 ports:
   - port: 8001
     onOpen: ignore
-  - port: 3306
-    onOpen: ignore
 tasks:
   - init: composer install
   - name: Apache

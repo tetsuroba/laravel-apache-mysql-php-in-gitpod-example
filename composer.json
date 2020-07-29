@@ -19,10 +19,12 @@
         "league/color-extractor":"^0.3",
         "claviska/simpleimage":"^3.3",
         "michelf/php-smartypants":"^1.8",
-        "mustangostang/spyc":"^0.6"
+        "mustangostang/spyc":"^0.6",
+        "fxp/composer-asset-plugin": "*"
     },
     "config": {
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "vendor-dir": "public/vendor"
     },
     "extra": {
     "kirby-cms-path": "public/kirby"
