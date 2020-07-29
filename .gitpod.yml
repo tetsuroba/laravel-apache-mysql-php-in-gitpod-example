@@ -5,6 +5,9 @@ ports:
     onOpen: open-preview
   - port: 3306
     onOpen: ignore
+vscode:
+  extensions:
+    - felixfbecker.php-debug@1.13.0:WX8Y3EpQk3zgahy41yJtNQ==
 tasks:
   - init: composer install;
           gp preview $(gp url 8001)
