@@ -1,8 +1,0 @@
-
-label: Introduction
-type: textarea
-buttons:
-  - italic
-  - bold
-  - email
-  - link

@@ -6,11 +6,10 @@ ports:
   - port: 3306
     onOpen: ignore
 tasks:
-  - init: composer install,
-          git clone https://github.com/constantinjoly/512 themes/512
-  - name: Unix
+  - init: composer install
+  - name: Git
     command: >
-          cp -r themes/512/. public
+        git clone https://github.com/constantinjoly/512 themes/512
   - name: Apache
     command: >
         apachectl start;

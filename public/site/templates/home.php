@@ -1,41 +1,48 @@
+<?php
+/**
+ * Templates render the content of your pages. 
+ * They contain the markup together with some control structures like loops or if-statements.
+ * The `$page` variable always refers to the currently active page. 
+ * To fetch the content from each field we call the field name as a method on the `$page` object, e.g. `$page->title()`. 
+ * This home template renders content from others pages, the children of the `photography` page to display a nice gallery grid.
+ * Snippets like the header and footer contain markup used in multiple templates. They also help to keep templates clean.
+ * More about templates: https://getkirby.com/docs/guide/templates/basics
+ */
+?>
+
 <?php snippet('header') ?>
 
 <main>
+  <?php snippet('intro') ?>
 
-    <?php if(!$page->hideIntro()->bool()): ?>
-    <section class="intro">
-        <h2><?= $page->introTitle()?></h2>
-        <?= $page->introText()->kt()?>
 
-        <?php if($relatedPage): ?>
-        <br />
-        <a class="link-dark-big" href="<?= $relatedPage->url()?>">
-            <?= $page->relatedtitle()->or($relatedPage->title()) ?>
-        </a>
-        <?php endif?>
-    </section>
-    <?php endif?>
-
-    <?php $projectsPage = $pages->listed()->findBy('template', 'projects');?>
-    <?php if($projectsPage):?>
-    <?php $projects = $projectsPage->projectsOnHome()->toPages();?>
-    <?php if($projects->count()):?>
-    <?php snippet('home-sections/projects', ['projects' => $projects, 'projectsPage' => $projectsPage]) ?>
-    <?php endif?>
-    <?php endif?>
-
-    <?php $services = $pages->listed()->findBy('template', 'services');?>
-    <?php if($services):?>   
-    <?php snippet('home-sections/services', ['services' => $services]) ?>
-    <?php endif?>
-
-    <?php $blog = $pages->listed()->findBy('template', 'blog');?> 
-    <?php if($blog):?>    
-    <?php snippet('home-sections/blog', ['blog' => $blog]) ?>
-    <?php endif?>
+  <?php 
+  // we always use an if-statement to check if a page exists to prevent errors 
+  // in case the page was deleted or renamed before we call a method like `children()` in this case
+  if ($photographyPage = page('photography')): ?>
+  <ul class="grid">
+    <?php foreach ($photographyPage->children()->listed() as $album): ?>
+    <li>
+      <a href="<?= $album->url() ?>">
+        <figure>
+          <?php 
+          // the `cover()` method defined in the `album.php` page model can be used 
+          // everywhere across the site for this type of page
+          if ($cover = $album->cover()): ?>
+          <?= $cover->resize(1024, 1024) ?>
+          <?php endif ?>
+          <figcaption>
+            <span>
+              <span class="example-name"><?= $album->title() ?></span>
+            </span>
+          </figcaption>
+        </figure>
+      </a>
+    </li>
+    <?php endforeach ?>
+  </ul>
+  <?php endif ?>
 
 </main>
-
-<div aria-label="fermer la fenetre" id="overlay" class="overlay"></div>
 
 <?php snippet('footer') ?>

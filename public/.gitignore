@@ -40,11 +40,5 @@ Icon
 # ---------------
 /site/config/.license
 
-
-#gitignore for copyright reasons
-
 /kirby
 /vendor
-/assets
-/content
-/site
